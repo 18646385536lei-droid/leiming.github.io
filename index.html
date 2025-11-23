@@ -20,27 +20,43 @@ a:hover { text-decoration:underline; }
 /* 导航栏 */
 nav {
   background:#fff;
-  border-top:1px solid #eee;
-  border-bottom:1px solid #eee;
-  padding:12px 0;
+  border-bottom:1px solid #e5e5e5;
+  padding:10px 0;
   text-align:center;
   position: sticky;
   top: 0;
   z-index: 10;
 }
-nav a { margin:0 18px; font-size:1rem; color:#444; }
+nav a {
+  margin:0 18px;
+  font-size:0.98rem;
+  color:#444;
+}
 
-/* 页面结构 */
+/* 页面整体 section 样式 + 分隔线 */
 section {
   max-width:900px;
-  margin:40px auto;
-  padding:0 20px;
+  margin:0 auto;
+  padding:32px 20px 40px;
+  border-top:1px solid #e5e5e5;
 }
-section h2 {
+section:first-of-type {
+  border-top:none; /* 关于我上面不画线 */
+}
+
+/* 标题样式（带图标） */
+.section-title {
   font-size:1.8rem;
   margin-bottom:16px;
-  border-left:5px solid #0066cc;
-  padding-left:12px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#333;
+}
+.section-title img {
+  width:26px;
+  height:26px;
+  opacity:0.9;
 }
 
 /* ABOUT 我（双栏布局） */
@@ -59,7 +75,6 @@ section h2 {
   box-shadow: 0 4px 14px rgba(0,0,0,0.08);
   text-align: center;
 }
-
 .about-photo {
   width: 160px;
   height: 160px;
@@ -68,12 +83,10 @@ section h2 {
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   margin-bottom: 16px;
 }
-
 .about-name {
   font-size: 1.6rem;
   margin: 10px 0 16px;
 }
-
 .about-line {
   display: flex;
   align-items: center;
@@ -82,7 +95,6 @@ section h2 {
   margin: 6px 0;
   font-size: 1rem;
 }
-
 .about-icon {
   width: 18px;
   opacity: 0.85;
@@ -107,7 +119,7 @@ section h2 {
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 }
 .news-date {
   font-weight:600;
@@ -166,14 +178,26 @@ section h2 {
   font-size:1.3rem;
   margin-bottom:10px;
 }
+.paper-box ul { margin:0; padding-left:18px; }
 .paper-box li { margin-bottom:10px; }
+
+/* 列表统一 */
+section ul {
+  list-style:none;
+  padding-left:0;
+}
+section ul li {
+  margin-bottom:8px;
+}
 
 /* 页尾 */
 footer {
+  margin-top:20px;
   text-align:center;
   padding:30px 20px;
   font-size:0.9rem;
   color:#777;
+  border-top:1px solid #e5e5e5;
 }
 </style>
 </head>
@@ -192,16 +216,16 @@ footer {
   <a href="#honors">荣誉奖励</a>
 </nav>
 
-<!-- ABOUT 我 -->
+<!-- 关于我 -->
 <section id="about">
-  <h2>关于我</h2>
+  <h2 class="section-title" style="gap:0;">关于我</h2>
 
   <div class="about-wrapper">
 
     <!-- 左侧信息 -->
     <div class="about-left">
 
-      <img src="personal photo.png" class="about-photo">
+      <img src="personal photo.png" class="about-photo" alt="雷铭头像">
 
       <h3 class="about-name">雷铭</h3>
 
@@ -228,7 +252,7 @@ footer {
     <div class="about-right">
       <p>
         在这里填写你的个人简介，包括研究方向、科研兴趣、技术专长、目前工作单位等。
-        建议 3–6 行，语言简洁。
+        建议控制在 3–6 行，语言简洁清晰，突出你的研究特点和代表性成果。
       </p>
     </div>
 
@@ -237,7 +261,10 @@ footer {
 
 <!-- 新闻 -->
 <section id="news">
-  <h2>新闻</h2>
+  <h2 class="section-title">
+    <img src="https://cdn-icons-png.flaticon.com/512/9068/9068649.png">
+    新闻
+  </h2>
 
   <div class="news-block">
     <div class="news-date">
@@ -255,7 +282,10 @@ footer {
 
 <!-- 工作经历 -->
 <section id="work">
-  <h2>工作经历</h2>
+  <h2 class="section-title">
+    <img src="https://cdn-icons-png.flaticon.com/512/3170/3170733.png">
+    工作经历
+  </h2>
   <ul>
     <li><strong>某大学</strong>（20XX–至今）<br>岗位与研究方向介绍。</li>
     <li><strong>上一单位</strong>（20XX–20XX）<br>工作内容简介。</li>
@@ -264,7 +294,10 @@ footer {
 
 <!-- 教育经历 -->
 <section id="edu">
-  <h2>教育经历</h2>
+  <h2 class="section-title">
+    <img src="https://cdn-icons-png.flaticon.com/512/2942/2942176.png">
+    教育经历
+  </h2>
   <ul>
     <li>博士 · 某大学（20XX–20XX）<br>导师：XXX</li>
     <li>本科/硕士 · 某大学（20XX–20XX）</li>
@@ -273,7 +306,10 @@ footer {
 
 <!-- 研究方向 -->
 <section id="research">
-  <h2>研究方向</h2>
+  <h2 class="section-title">
+    <img src="https://cdn-icons-png.flaticon.com/512/2920/2920403.png">
+    研究方向
+  </h2>
 
   <div class="card-list">
     <div class="card">
@@ -295,7 +331,10 @@ footer {
 
 <!-- 发表文章 -->
 <section id="papers">
-  <h2>发表文章</h2>
+  <h2 class="section-title">
+    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135675.png">
+    发表文章
+  </h2>
 
   <div class="paper-flex">
 
@@ -322,7 +361,10 @@ footer {
 
 <!-- 科研项目 -->
 <section id="funds">
-  <h2>科研项目</h2>
+  <h2 class="section-title">
+    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png">
+    科研项目
+  </h2>
   <ul>
     <li>项目 A（主持）</li>
     <li>项目 B（参与）</li>
@@ -331,7 +373,10 @@ footer {
 
 <!-- 荣誉奖励 -->
 <section id="honors">
-  <h2>荣誉奖励</h2>
+  <h2 class="section-title">
+    <img src="https://cdn-icons-png.flaticon.com/512/3298/3298769.png">
+    荣誉奖励
+  </h2>
   <ul>
     <li>奖励 A（年份）</li>
   </ul>
