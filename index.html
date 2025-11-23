@@ -1,237 +1,244 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>你的姓名 – 个人主页</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
-      line-height: 1.6;
-      background: #f9f9f9;
-      color: #333;
-    }
-    a {
-      color: #0066cc;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    header {
-      background: #fff;
-      padding: 40px 20px;
-      text-align: center;
-      box-shadow: 0 1px 8px rgba(0,0,0,0.05);
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.4rem;
-    }
-    header p {
-      margin-top: 8px;
-      color: #666;
-    }
-    nav {
-      background: #fff;
-      border-top: 1px solid #eee;
-      border-bottom: 1px solid #eee;
-      text-align: center;
-      padding: 12px 0;
-    }
-    nav a {
-      margin: 0 16px;
-      font-size: 1rem;
-      color: #444;
-    }
-    section {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-    section h2 {
-      margin-bottom: 16px;
-      font-size: 1.8rem;
-      border-left: 4px solid #0066cc;
-      padding-left: 10px;
-    }
-    section ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    section ul li {
-      margin-bottom: 8px;
-    }
-    footer {
-      text-align: center;
-      padding: 30px 20px;
-      color: #888;
-      font-size: 0.9rem;
-    }
-  </style>
-</head>
-<body>
-
-<header>
-  <h1>你的姓名，博士</h1>
-  <p>某某单位 · 城市</p>
-  <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
-</header>
-
-<nav>
-  <a href="#about">关于</a>
-  <a href="#news">最新信息</a>
-  <a href="#work">工作经历</a>
-  <a href="#edu">教育经历</a>
-  <a href="#research">研究成果</a>
-  <a href="#funds">研究基金</a>
-  <a href="#honors">荣誉奖励</a>
-  <a href="#other">其他经历</a>
-  <a href="#industry">产业化</a>
-</nav>
-
-<section id="about">
-  <h2>关于我</h2>
-  <p>这里写你的个人简介：比如目前在哪个单位／研究方向／特色成果。</p>
-</section>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ming – Personal Homepage</title>
 
 <style>
-.news-item {
-  width: 100%;
-  border-top: 6px solid #e8b8c8;   /* 上方粉色细条 */
-  border-bottom: 6px solid #e8b8c8; /* 下方粉色细条 */
-  padding: 20px;
-  margin: 40px 0;
+/* 基本样式 */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  line-height: 1.6;
+  background: #fafafa;
+  color: #333;
+}
+a { color: #0066cc; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+header {
   background: #fff;
-  display: grid;
-  grid-template-columns: 1.3fr 1fr;
-  gap: 20px;
-  align-items: center;
-  border-radius: 8px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+  padding: 40px 20px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+header h1 { margin: 0; font-size: 2.4rem; }
+header p { margin-top: 6px; color: #666; }
+
+nav {
+  background: #fff;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 12px 0;
+  text-align: center;
+}
+nav a { margin: 0 18px; font-size: 1rem; color: #444; }
+
+section {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
 }
 
-/* 左侧文字 */
-.news-left {
-  padding: 10px;
+section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 16px;
+  border-left: 5px solid #0066cc;
+  padding-left: 12px;
 }
+
+ul { list-style: none; padding-left: 0; }
+
+/* ————— 新闻模块 ————— */
+.news-block {
+  display: grid;
+  grid-template-columns: 1.2fr 0.9fr;
+  gap: 20px;
+  padding: 20px;
+  border-top: 6px solid #e8b8c8;
+  border-bottom: 6px solid #e8b8c8;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  margin-bottom: 40px;
+}
+
+.news-left { padding-right: 8px; }
 
 .news-date {
-  font-size: 16px;
   font-weight: 600;
-  margin-bottom: 4px;
+  font-size: 15px;
   display: flex;
   align-items: center;
   gap: 8px;
 }
-
 .news-date img {
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
 }
 
-.news-location {
+.news-loc {
   font-size: 15px;
-  margin-bottom: 14px;
-  color: #333;
+  margin: 6px 0 16px;
   font-weight: 500;
+  color: #444;
 }
-
 .news-text {
   font-size: 16px;
   line-height: 1.7;
 }
 
-/* 右侧图片 */
 .news-right img {
   width: 100%;
   border-radius: 10px;
 }
+
+/* ————— 简单卡片区（研究方向） ————— */
+.card-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+.card {
+  background: #fff;
+  padding: 16px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.card-title {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 0.9rem;
+  color: #777;
+}
 </style>
+</head>
 
+<body>
 
-<div class="news-item">
-  <!-- 左侧文字区域 -->
-  <div class="news-left">
+<!-- 顶部 -->
+<header>
+  <h1>Ming</h1>
+  <p>Macao · China</p>
+  <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
+</header>
 
-    <div class="news-date">
-      <img src="https://cdn-icons-png.flaticon.com/512/747/747310.png">
-      <span>2025/09/24</span>
+<!-- 导航栏 -->
+<nav>
+  <a href="#about">About</a>
+  <a href="#news">News</a>
+  <a href="#work">Work</a>
+  <a href="#edu">Education</a>
+  <a href="#research">Research</a>
+  <a href="#funds">Fundings</a>
+  <a href="#honors">Honors</a>
+</nav>
+
+<!-- 关于我 -->
+<section id="about">
+  <h2>About Me</h2>
+  <p>
+    在这里写你的简介。例如：你的研究方向、所在单位、主要技术亮点，
+    未来研究计划等。内容控制在 3–6 行即可。
+  </p>
+</section>
+
+<!-- 新闻（新样式） -->
+<section id="news">
+  <h2>News</h2>
+
+  <!-- 新闻条目 1（示例） -->
+  <div class="news-block">
+    <div class="news-left">
+      <div class="news-date">
+        <img src="https://cdn-icons-png.flaticon.com/512/747/747310.png">
+        2025/09/24
+      </div>
+
+      <div class="news-loc">Macao, CHINA</div>
+
+      <div class="news-text">
+        Ming's work <strong>"Dual-sided micro-cilia arrays for wearable pressure sensing"</strong>
+        was accepted in <em>Nanoscale</em>.
+      </div>
     </div>
 
-    <div class="news-location">Macao, CHINA</div>
-
-    <div class="news-text">
-      Ming’s work of <strong>“Dual-sided micro-cilia arrays for wearable pressure sensing”</strong>
-      was accepted in <em>Nanoscale</em>.
+    <div class="news-right">
+      <img src="your-image.png" alt="news image">
     </div>
   </div>
 
-  <!-- 右侧图片（你想放什么都行） -->
-  <div class="news-right">
-    <img src="your-image.png" alt="News image">
-  </div>
-</div>
+</section>
 
-
-
+<!-- 工作经历 -->
 <section id="work">
-  <h2>工作经历</h2>
+  <h2>Work Experience</h2>
   <ul>
-    <li>单位 A，20XX-至今。<br><span style="color:#666;">职位：XXX，工作／研究内容简介。</span></li>
-    <li>单位 B，20XX-20XX。<br><span style="color:#666;">职位：XXX，内容简介。</span></li>
+    <li><strong>University / Institute</strong>（20XX–至今）<br>职位：研究方向、职责简介。</li>
+    <li><strong>Previous Lab / Company</strong>（20XX–20XX）<br>岗位介绍。</li>
   </ul>
 </section>
 
+<!-- 教育经历 -->
 <section id="edu">
-  <h2>教育经历</h2>
+  <h2>Education</h2>
   <ul>
-    <li>大学／学院，博士，专业，20XX-20XX。<br><span style="color:#666;">导师：XXX。</span></li>
-    <li>本科／硕士，学院，专业，20XX-20XX。</li>
+    <li>Ph.D., 某大学（20XX–20XX）<br>导师：XXX</li>
+    <li>B.Sc. / M.Sc., 某大学（20XX–20XX）</li>
   </ul>
 </section>
 
+<!-- 研究方向 -->
 <section id="research">
-  <h2>研究成果</h2>
-  <ul>
-    <li>作者. “论文标题1”. 期刊, 年份.</li>
-    <li>作者. “论文标题2”. 期刊, 年份.</li>
-  </ul>
+  <h2>Research</h2>
+  <div class="card-list">
+    <div class="card">
+      <div class="card-title">Flexible Sensors</div>
+      开发高灵敏可穿戴传感器，用于健康监测与人体交互。
+    </div>
+    <div class="card">
+      <div class="card-title">Human–Machine Interaction</div>
+      基于触觉与多模态信号的智能界面。
+    </div>
+    <div class="card">
+      <div class="card-title">Soft Electronics</div>
+      柔性材料、可拉伸电子系统集成。
+    </div>
+  </div>
 </section>
 
+<!-- 基金 -->
 <section id="funds">
-  <h2>研究基金</h2>
+  <h2>Fundings</h2>
   <ul>
-    <li>项目名称（在研/已结题）<br><span style="color:#666;">项目来源、角色、简介。</span></li>
+    <li>项目 A（主持）– 项目简介。</li>
+    <li>项目 B（参与）– 简介。</li>
   </ul>
 </section>
 
+<!-- 荣誉奖励 -->
 <section id="honors">
-  <h2>荣誉奖励</h2>
+  <h2>Honors</h2>
   <ul>
-    <li>奖项名称，授予单位，年份。</li>
+    <li>某奖项（20XX）</li>
+    <li>某竞赛奖（20XX）</li>
   </ul>
-</section>
-
-<section id="other">
-  <h2>其他经历</h2>
-  <ul>
-    <li>职务／组织名称，时间范围。</li>
-  </ul>
-</section>
-
-<section id="industry">
-  <h2>产业化</h2>
-  <p>如果有转化项目、工程落地等就在这里写；如果没有可以先写“暂缺 / 待更新”。</p>
 </section>
 
 <footer>
-  © <span id="year"></span> 你的姓名
+  © <span id="year"></span> Ming
 </footer>
 
 <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 
 </body>
