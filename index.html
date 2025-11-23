@@ -6,6 +6,7 @@
 <title>雷铭 – 个人主页</title>
 
 <style>
+/* 全局样式 */
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
@@ -13,19 +14,19 @@ body {
   color: #333;
 }
 
-/* 布局：左侧固定栏 + 右侧主内容 */
+/* 两栏布局：左侧固定栏 + 右侧主内容 */
 .container {
   display: grid;
   grid-template-columns: 300px 1fr;
 }
 
-/* 左侧个人信息栏（固定不动） */
+/* 左侧个人信息栏（滚动不动） */
 .sidebar {
   position: sticky;
   top: 0;
   align-self: start;
   height: 100vh;
-  padding: 30px;
+  padding: 30px 20px;
   background: #ffffff;
   box-shadow: 4px 0 14px rgba(0, 0, 0, 0.1);
 }
@@ -57,12 +58,13 @@ body {
 
 .sidebar-line img {
   width: 18px;
+  height: 18px;
   opacity: 0.85;
 }
 
-/* 右侧部分 */
+/* 右侧主内容 */
 .main {
-  padding: 40px 50px;
+  padding: 30px 40px 40px;
 }
 
 /* 标题（带图标） */
@@ -72,64 +74,77 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin: 30px 0 20px;
+  margin: 25px 0 18px;
 }
 
 .section-title img {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
 }
 
-/* 关于我描述 */
+/* 关于我简介块 */
 .about-text {
   font-size: 17px;
-  line-height: 1.7;
+  line-height: 1.5;
   background:#fff;
-  padding:20px;
+  padding:18px 20px;
   border-radius:10px;
   box-shadow:0 4px 10px rgba(0,0,0,0.05);
 }
 
-/* 新闻模块（深蓝色） */
-.news-block, .work-block {
-  padding: 20px;
+/* 新闻 & 工作经历：深蓝色卡片 */
+.news-block,
+.work-block {
+  padding: 16px 18px;
   border-left: 6px solid #003366;
   background: #fff;
   border-radius: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.06);
 }
 
-.news-date, .work-date {
+.news-date,
+.work-date {
   font-weight: 600;
   font-size: 16px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
-.news-loc, .work-loc {
-  margin: 5px 0 10px;
+/* 修复图标过大的问题 */
+.news-date img,
+.work-date img {
+  width: 26px !important;
+  height: 26px !important;
+  flex-shrink: 0;
+}
+
+.news-loc,
+.work-loc {
+  margin: 4px 0 8px;
   font-weight: 500;
+  font-size: 15px;
 }
 
-.news-text, .work-text {
+.news-text,
+.work-text {
   font-size: 16px;
   line-height: 1.7;
 }
 
-/* 教育经历字体大一点 */
+/* 教育经历字体 */
 .edu-item {
   font-size: 17px;
-  margin-bottom: 15px;
+  margin-bottom: 14px;
   line-height: 1.6;
 }
 
-/* 文章：上下排列 */
+/* 发表文章：上下两个盒子 */
 .paper-box {
   background:#fff;
-  padding:20px;
-  margin-bottom:20px;
+  padding:18px 20px;
+  margin-bottom:18px;
   border-radius:10px;
   box-shadow:0 4px 10px rgba(0,0,0,0.05);
 }
@@ -141,17 +156,40 @@ body {
 
 .paper-box ul {
   padding-left: 20px;
+  margin: 0;
 }
 
 .paper-box li {
-  margin-bottom:10px;
+  margin-bottom:8px;
+  font-size:15px;
 }
 
-/* 页尾 */
+/* 荣誉奖励块复用 paper-box 风格 */
+.honor-box {
+  background:#fff;
+  padding:18px 20px;
+  border-radius:10px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* 页脚 */
 footer {
   text-align:center;
-  margin:40px 0 20px;
+  margin:30px 0 15px;
   color:#777;
+  font-size: 14px;
+}
+
+/* 简单的响应式：屏幕较窄时改为上下布局 */
+@media (max-width: 960px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    position: static;
+    height: auto;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  }
 }
 </style>
 </head>
@@ -159,36 +197,36 @@ footer {
 
 <div class="container">
 
-  <!-- 左侧固定卡片 -->
+  <!-- 左侧固定信息栏 -->
   <aside class="sidebar">
-    <img src="personal photo.png" alt="雷铭照片">
+    <img src="personal-photo.png" alt="雷铭照片">
 
     <div class="sidebar-name">雷铭</div>
 
     <div class="sidebar-line">
-      <img src="https://cdn-icons-png.flaticon.com/512/535/535239.png">
+      <img src="https://cdn-icons-png.flaticon.com/512/535/535239.png" alt="">
       中国澳门
     </div>
 
     <div class="sidebar-line">
-      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png">
+      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="">
       <a href="mailto:leiming@um.edu.mo">leiming@um.edu.mo</a>
     </div>
 
     <div class="sidebar-line">
-      <img src="https://cdn-icons-png.flaticon.com/512/300/300221.png">
+      <img src="https://cdn-icons-png.flaticon.com/512/300/300221.png" alt="">
       <a href="https://scholar.google.com.hk/citations?user=L6gSsJYAAAAJ&hl=zh-CN" target="_blank">
         Google Scholar
       </a>
     </div>
   </aside>
 
-  <!-- 右侧所有内容 -->
+  <!-- 右侧主体内容 -->
   <main class="main">
 
     <!-- 关于我 -->
     <h2 class="section-title">
-      <img src="https://cdn-icons-png.flaticon.com/512/3448/3448339.png">
+      <img src="https://cdn-icons-png.flaticon.com/512/3448/3448339.png" alt="">
       关于我
     </h2>
 
@@ -199,13 +237,13 @@ footer {
 
     <!-- 新闻 -->
     <h2 class="section-title">
-      <img src="https://cdn-icons-png.flaticon.com/512/9068/9068649.png">
+      <img src="https://cdn-icons-png.flaticon.com/512/9068/9068649.png" alt="">
       新闻
     </h2>
 
     <div class="news-block">
       <div class="news-date">
-        <img src="https://cdn-icons-png.flaticon.com/512/747/747310.png">
+        <img src="https://cdn-icons-png.flaticon.com/512/747/747310.png" alt="">
         2025/11/02
       </div>
       <div class="news-loc">上海，中国</div>
@@ -216,126 +254,142 @@ footer {
 
     <div class="news-block">
       <div class="news-date">
-        <img src="https://cdn-icons-png.flaticon.com/512/747/747310.png">
+        <img src="https://cdn-icons-png.flaticon.com/512/747/747310.png" alt="">
         2025/09/24
       </div>
       <div class="news-loc">澳门，中国</div>
       <div class="news-text">
-        雷铭的工作 <strong>“Dual-sided micro-cilia arrays for wearable pressure sensing”</strong> 被期刊 <em>Nanoscale</em> 接收。
+        雷铭的工作 <strong>“Dual-sided micro-cilia arrays for wearable pressure sensing”</strong>
+        被期刊 <em>Nanoscale</em> 接收。
       </div>
     </div>
 
     <div class="news-block">
       <div class="news-date">
-        <img src="https://cdn-icons-png.flaticon.com/512/747/747310.png">
+        <img src="https://cdn-icons-png.flaticon.com/512/747/747310.png" alt="">
         2025/09/02
       </div>
       <div class="news-loc">澳门，中国</div>
       <div class="news-text">
         雷铭的工作 <strong>“Engineered Modulus Gradient for Wide-range Linear Capacitive Pressure Transduction”</strong>
-        被 <em>Advanced Materials Technologies</em> 接收。
+        被期刊 <em>Advanced Materials Technologies</em> 接收。
       </div>
     </div>
 
     <div class="news-block">
       <div class="news-date">
-        <img src="https://cdn-icons-png.flaticon.com/512/747/747310.png">
+        <img src="https://cdn-icons-png.flaticon.com/512/747/747310.png" alt="">
         2024/07/30
       </div>
       <div class="news-loc">澳门，中国</div>
       <div class="news-text">
-        雷铭参加 2024 粤港澳大湾区物理联合学术年会并作 “E-Skin 信息扩展模式” 报告。
+        雷铭参加 2024 Joint Annual Conference of Physical Societies in Guangdong-Hong Kong-Macao Greater Bay Area，并作题为
+        <strong>“Multifunctional E-Skin based on Non-overlapping Mode for Information Expansion.”</strong>
+        的报告。
       </div>
     </div>
 
 
-    <!-- 工作经历（新格式：新闻风卡片） -->
+    <!-- 工作经历（新闻风卡片） -->
     <h2 class="section-title">
-      <img src="https://cdn-icons-png.flaticon.com/512/3170/3170733.png">
+      <img src="https://cdn-icons-png.flaticon.com/512/3170/3170733.png" alt="">
       工作经历
     </h2>
 
     <div class="work-block">
       <div class="work-date">
-        <img src="https://cdn-icons-png.flaticon.com/512/747/747310.png">
+        <img src="https://cdn-icons-png.flaticon.com/512/747/747310.png" alt="">
         2024/10 – 至今
       </div>
       <div class="work-loc">澳门大学</div>
       <div class="work-text">
-        博士后研究员，从事柔性传感与智能界面相关研究。
+        博士后研究员，从事柔性压力传感器、磁性人机交互器件及光纤频率检测相关研究。
       </div>
     </div>
 
     <div class="work-block">
       <div class="work-date">
-        <img src="https://cdn-icons-png.flaticon.com/512/747/747310.png">
+        <img src="https://cdn-icons-png.flaticon.com/512/747/747310.png" alt="">
         2024/06 – 2024/10
       </div>
       <div class="work-loc">澳门大学</div>
       <div class="work-text">
-        研究助理，参与柔性电子项目开发。
+        研究助理，参与柔性电子与智能界面相关科研项目。
       </div>
     </div>
 
 
     <!-- 教育经历 -->
     <h2 class="section-title">
-      <img src="https://cdn-icons-png.flaticon.com/512/2942/2942176.png">
+      <img src="https://cdn-icons-png.flaticon.com/512/2942/2942176.png" alt="">
       教育经历
     </h2>
 
     <div class="edu-item">
-      哲学博士 · 澳门大学（2020–2024）  
-      导师：周冰朴副教授
+      哲学博士 · 澳门大学（2020 年 8 月 – 2024 年 6 月）<br>
+      导师：周冰朴副教授 · 柔性电子与智能界面实验室
     </div>
 
     <div class="edu-item">
-      工学硕士 · 东北大学（2016–2018）  
-      导师：赵勇教授
+      工学硕士 · 东北大学（2016 年 9 月 – 2018 年 1 月）<br>
+      导师：赵勇教授（长江学者，国家杰青，东秦校长）
     </div>
 
     <div class="edu-item">
-      工学学士 · 哈尔滨理工大学（2012–2016）  
+      工学学士 · 哈尔滨理工大学（2012 年 9 月 – 2016 年 7 月）<br>
       导师：盖建新教授
     </div>
 
 
-    <!-- 发表文章 -->
+    <!-- 研究方向 -->
     <h2 class="section-title">
-      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135675.png">
+      <img src="https://cdn-icons-png.flaticon.com/512/2920/2920403.png" alt="">
+      研究方向
+    </h2>
+
+    <div class="paper-box">
+      <ul>
+        <li><strong>柔性压力传感器：</strong> 通过微结构设计实现线性度与灵敏度的协同优化，面向可穿戴与人机交互应用。</li>
+        <li><strong>磁性人机交互器件：</strong> 设计柔性磁性结构，实现稳定可控的机械—磁响应。</li>
+        <li><strong>基于光纤结构的频率检测：</strong> 利用光纤结构监测柔性材料本征频率变化，用于高精度的人机交互与状态识别。</li>
+      </ul>
+    </div>
+
+
+    <!-- 发表文章：上下两块 -->
+    <h2 class="section-title">
+      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135675.png" alt="">
       发表文章
     </h2>
 
     <div class="paper-box">
       <h3>一作及通讯作者文章</h3>
       <ul>
-        <li>Ming Lei, Bingpu Zhou,* · Dual-sided micro-cilia arrays … · <em>Nanoscale</em> · 2025</li>
-        <li>Ming Lei, Bingpu Zhou,* · Modulus Gradient Capacitive Sensor … · <em>Adv. Mater. Technol.</em> · 2025</li>
-        <li>Ming Lei, Bingpu Zhou,* · Hybrid Dielectric Structure … · <em>Adv. Mater. Technol.</em> · 2023</li>
-        <li>Runxing Lin†, Ming Lei†, Yinning Zhou*, etc. · <em>Materials Today Bio</em> · 2023</li>
-        <li>Ming Lei, Bingpu Zhou,* · Breathable e-skin … · <em>ACS Nano</em> · 2022</li>
+        <li>Ming Lei, Bingpu Zhou,* Cactus-inspired dual-sided micro-cilia arrays … <em>Nanoscale</em>, 2025.</li>
+        <li>Ming Lei, Bingpu Zhou,* Double-Domed Dielectric Foam with Engineered Modulus Gradient … <em>Adv. Mater. Technol.</em>, 2025.</li>
+        <li>Ming Lei, Bingpu Zhou,* Template-free formation of hybrid dielectric for flexible capacitive sensors … <em>Adv. Mater. Technol.</em>, 2023.</li>
+        <li>Runxing Lin†, Ming Lei†, Yinning Zhou* et al., Applications of Flexible Electronics related to cardiocerebral vascular system, <em>Materials Today Bio</em>, 2023.</li>
+        <li>Ming Lei, Bingpu Zhou,* Breathable and waterproof electronic skin with three-dimensional architecture … <em>ACS Nano</em>, 2022.</li>
       </ul>
     </div>
 
     <div class="paper-box">
       <h3>主要作者文章</h3>
       <ul>
-        <li>XXX · Small · 2024</li>
-        <li>XXX · Science Bulletin · 2023</li>
-        <li>XXX · Sensors & Actuators A · 2022</li>
+        <li>（待补充）</li>
       </ul>
     </div>
 
 
     <!-- 荣誉奖励 -->
     <h2 class="section-title">
-      <img src="https://cdn-icons-png.flaticon.com/512/2583/2583343.png">
+      <img src="https://cdn-icons-png.flaticon.com/512/2583/2583343.png" alt="">
       荣誉奖励
     </h2>
 
-    <div class="paper-box">
+    <div class="honor-box">
       <ul>
-        <li>奖励 A（年份）</li>
+        <li>（待补充）</li>
       </ul>
     </div>
 
